@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int a,b;
+    int sum;
+
+    scanf("%d%d",&a,&b);
+    sum=a+b;
+    if(sum<0){
+        putchar('-');
+        sum=-sum;
+    }
+    if(sum<1000){
+        printf("%d",sum);
+    }else{
+        int bits=(int)log10(sum);//获取位数
+        for(int i=bits;i>=0;i--){
+           printf("%d",sum/(int)pow(10,i));
+           sum=sum%(int)pow(10,i);
+           if(i%3==0&&i){
+               putchar(',');
+           }
+        }
+    }
+}
